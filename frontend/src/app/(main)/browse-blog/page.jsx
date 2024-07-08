@@ -2,29 +2,35 @@
 import React, { useEffect, useState } from 'react'
 
 const BrowseBlogs = () => {
-  const [blog, setblog]=useState([]);
+  const [blogList, setBlogList] = useState([]);
 
-  const fetchblogs = () => {
-    fetch("http://localhost:5000/blogs/getall")
-    .then((response) => {
-      console.log(response.status);
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      setblog(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  };
+  const fetchBlogData = () => {
+      fetch('http://localhost:5000/blog/getall')
+          .then(response => response.json())
+          .then(data => {
+              console.log(data);
+              setBlogList(data);
+          })
+          .catch(err => console.log(err));
+  }
 
   useEffect(() => {
-    fetchblogs();
-  } , []);
+      fetchBlogData();
+  }, []);
 
-  const displayblogs = () => {
-    return blog.map((blogs) =>{
+  const sliceString = (str, maxLength) => {
+      if (str.length > maxLength) {
+          return str.slice(0, maxLength) + '...';
+      } else {
+          return str;
+      }
+  }
+
+  const displayBlogs = () => {
+      if (blogList.length === 0) {
+          return <h1>No Blogs Available</h1>
+      } else {
+    return blogList.map((blogs) =>{
       return  <div className="bg-white rounded-lg shadow-lg p-8">
       <div className="relative overflow-hidden">
         <img
@@ -45,7 +51,7 @@ const BrowseBlogs = () => {
       </p>
     </div>
     })
-
+  }
   }
   return (
     <>
@@ -55,7 +61,7 @@ const BrowseBlogs = () => {
     <h2 className="text-3xl font-bold text-white mb-8">
        Latest Blogs   </h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-     {displayblogs()}
+     {displayBlogs()}
 
      
     </div>
