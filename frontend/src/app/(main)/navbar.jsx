@@ -16,26 +16,29 @@ const Navbar = () => {
       >
         <div className="md:col-span-3">
              
-        <div className="h-10 w-10 self-center mr-2">
+        <div className=" w-20 self-center mr-2">
         <img
-          className="h-10 w-10 self-center"
+          className="w-max h-max"
           src="blog.png"
         />
       </div>
         </div>
         {/* Button Group */}
         <div className="flex items-center gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
+        <div>
+              <a style={{color:"#bc4749"}}
+                className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
+                href="/about"
+                aria-current="page"
+              >
+                About Us
+              </a>
+            </div>
           <button style={{color:"#bc4749"}}
             type="button"
-            className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
+           className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
           >
             Sign in
-          </button>
-          <button style={{color:"#bc4749"}}
-            type="button"
-             className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
-          >
-            About Us
           </button>
           <div className="md:hidden">
             <button
@@ -88,8 +91,8 @@ const Navbar = () => {
           <div className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
             <div>
               <a style={{color:"#bc4749"}}
-                className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
-                href="#"
+                className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
+                href="/user/createBlog"
                 aria-current="page"
               >
                 Write Post
@@ -97,16 +100,16 @@ const Navbar = () => {
             </div>
             <div>
               <a style={{color:"#bc4749"}}
-                 className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
-                   href="#"
+                className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
+                   href="/browse-competition"
               >
                 Broswse Competitions
               </a>
             </div>
             <div>
               <a style={{color:"#bc4749"}}
-               className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
-                href="#"
+              className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
+                href="/browse-blog"
               >
                 Browse Blogs
               </a>
