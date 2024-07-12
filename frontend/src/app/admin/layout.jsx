@@ -4,7 +4,6 @@ import AdminNavbar from './navbar'
 const Layout = ({ children }) => {
     return (
         <>
-            <AdminNavbar />
             {children}
         </>
     )
