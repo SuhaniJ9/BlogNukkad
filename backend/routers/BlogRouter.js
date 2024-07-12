@@ -38,7 +38,7 @@ router.delete('/delete/:id', (req, res) => {
 });
 
 router.get('/getbyid/:id', (req, res) => {
-    Model.findById(req.params.id).populate('user')
+    Model.findById(req.params.id) //params is used to access parameters(for eg. id)
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {

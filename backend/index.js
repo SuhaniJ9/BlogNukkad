@@ -3,7 +3,7 @@ const app = express();
 const port = 5000;
 const userRouter = require('./routers/UserRouter');
 const cors=require('cors');
-const adminRouter = require('./routers/AdminRouter');
+const competitionRouter = require('./routers/CompetitionRouter');
 const utilRouter = require('./routers/UtilRouter');
 const blogRouter = require('./routers/BlogRouter');
 const contactRouter = require('./routers/ContactRouter');
@@ -19,7 +19,7 @@ app.use('/user', userRouter);
 app.use(cors({
     origin: ['http://localhost:3000'],
 }))
-app.use('/admin', adminRouter);
+app.use('/competition', competitionRouter);
 app.use('/util', utilRouter);
 app.use( express.static('./uploads'));
 app.use('/blog', blogRouter);

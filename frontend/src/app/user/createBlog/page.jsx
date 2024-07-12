@@ -1,9 +1,10 @@
-'use client'
+'use client';
 import MDEditor from '@uiw/react-md-editor';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+
 
 const CreateBlog = () => {
 const router = useRouter();
@@ -29,6 +30,7 @@ const router = useRouter();
         headers: {
           'Content-Type' : 'application/json',
           'x-auth-token' : currentUser.token
+          
         }
       })
       .then((response) => {
@@ -36,7 +38,8 @@ const router = useRouter();
           if(response.status === 200){
             toast.success('Blog Added')
             router.push("/browse-blog")
-          }else{
+          }
+          else{
             toast.error('some error occured')
           }
         }).catch((err) => {

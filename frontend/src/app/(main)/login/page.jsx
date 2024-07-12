@@ -6,8 +6,10 @@ import { Formik, useFormik, yupToFormErrors } from 'formik'
 import * as Yup from 'yup'
 import Link from 'next/link';
 import toast from 'react-hot-toast';
-const Login = () => {
+import { useRouter } from 'next/navigation';
 
+const Login = () => {
+const router = useRouter();
     const addUserSchema = Yup.object().shape({
         email: Yup.string().email('Invalid email').required('Required'),
         password: Yup.string().required('Required')
@@ -34,8 +36,9 @@ const Login = () => {
                 toast.success("Login Successfull");
                 const data = await res.json();
                 console.log(data);
-                sessionStorage.setItem('user', JSON.stringify(data))
-                setLoggedIn(true);
+               sessionStorage.setItem("user", JSON.stringify(data));
+                router.push("/");
+
             
               } else if (res.status === 401) {
                 toast.error("Invalid Credentials");
@@ -81,11 +84,9 @@ const Login = () => {
 
                             </div>
                         </div>
-
-                        <div className="flex">
-                            <div className="flex  w-1/2">
-                                <div className="w-full px-3 text-gray-900 mb-3">
-                                    <label htmlFor="" className="text-xs font-semibold px-1">
+                        <div className="flex -mx-3">
+                            <div className="w-full px-3 mx-3">
+                                <label htmlFor="" className="text-xs text-gray-900 font-semibold px-1">
                                         Password
                                     </label>
                                     {
@@ -110,16 +111,15 @@ const Login = () => {
 
                                 </div>
 
-                            </div>
 
                         </div>
-
                         <button style={{ backgroundColor: "#bc4749" }}
                             className="text-black py-2 mx-2 rounded-xl hover:scale-105 duration-300 hover:bg-orange-700 font-medium"
                             type="submit"
                         >
                             Login
                         </button>
+                        
                     </form>
                     <div className="mt-4 text-sm flex text-gray-700 justify-between items-center container-mr">
                         <p className="mr-3 md:mr-0 ">If you don't have an account..</p>
