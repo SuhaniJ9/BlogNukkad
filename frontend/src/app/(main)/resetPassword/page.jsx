@@ -19,7 +19,7 @@ const ResetPassword = () => {
           <div>
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-[#bc4749]"
+              className="block mb-2 text-sm font-medium text-slate-600 dark:text-[#bc4749]"
             >
               Your email
             </label>
@@ -27,7 +27,7 @@ const ResetPassword = () => {
               type="email"
               name="email"
               id="email"
-             className="bg-[#bc4749] border border-gray-800 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#bc4749] dark:border-gray-900 dark:placeholder-white dark:text-white dark:focus:ring-[#bc4749] dark:focus:border-[#bc4749]"
+             className="bg-[#bc4749] border border-gray-800 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#bc4749] dark:border-gray-900 dark:focus:ring-[#bc4749] dark:focus:border-[#bc4749]"
               placeholder="name@company.com"
               required=""
             />
@@ -35,7 +35,7 @@ const ResetPassword = () => {
           <div>
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-[#bc4749]"
+              className="block mb-2 text-sm font-medium text-slate-600 dark:text-[#bc4749]"
             >
               New Password
             </label>
@@ -44,14 +44,14 @@ const ResetPassword = () => {
               name="password"
               id="password"
               placeholder="••••••••"
-               className="bg-[#bc4749] border border-gray-800 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#bc4749] dark:border-gray-900 dark:placeholder-white dark:text-white dark:focus:ring-[#bc4749] dark:focus:border-[#bc4749]"
+               className="bg-[#bc4749] border border-gray-800 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#bc4749] dark:border-gray-900 dark:focus:ring-[#bc4749] dark:focus:border-[#bc4749]"
               required=""
             />
           </div>
           <div>
             <label
               htmlFor="confirm-password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-[#bc4749]"
+              className="block mb-2 text-sm font-medium text-slate-600 dark:text-[#bc4749]"
             >
               Confirm password
             </label>
@@ -60,38 +60,14 @@ const ResetPassword = () => {
               name="confirm-password"
               id="confirm-password"
               placeholder="••••••••"
-               className="bg-[#bc4749] border border-gray-800 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#bc4749] dark:border-gray-900 dark:placeholder-white dark:text-white dark:focus:ring-[#bc4749] dark:focus:border-[#bc4749]"
+               className="bg-[#bc4749] border border-gray-800 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-[#bc4749] dark:border-gray-900 dark:focus:ring-[#bc4749] dark:focus:border-[#bc4749]"
               required=""
             />
           </div>
-          <div className="flex items-start">
-            <div className="flex items-center h-5">
-              <input
-                id="newsletter"
-                aria-describedby="newsletter"
-                type="checkbox"
-                className="w-4 h-4 border border-black-300 rounded bg-blue-50 focus:ring-3 focus:ring-primary-300 dark:bg-blue-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-blue-800"
-                required=""
-              />
-            </div>
-            <div className="ml-3 text-sm">
-              <label
-                htmlFor="newsletter"
-                className="font-light text-blue-500 dark:text-[#bc4749]"
-              >
-                I accept the{" "}
-                <a
-                  className="font-medium text-primary-600 hover:underline dark:text-[#bc4749]"
-                  href="#"
-                >
-                  Terms and Conditions
-                </a>
-              </label>
-            </div>
-          </div>
+          
           <button
             type="submit"
-            className="bg-blue-800 w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            className="bg-blue-800 w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:border-blue-700 hover:scale-105 hover:bg-blue-700 duration-300 dark:focus:ring-primary-800"
           >
             Reset passwod
           </button>

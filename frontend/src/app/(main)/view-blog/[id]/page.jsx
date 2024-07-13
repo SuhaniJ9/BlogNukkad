@@ -43,6 +43,11 @@ const displayblog = () => {
             <div className="max-w-3xl mx-auto">
               <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
                 <div className="bg-[#f2e8cf] relative top-0 -mt-32 p-5 sm:p-10">
+                  <p className="">{new Date (blog.createdAt).toLocaleDateString()}
+                    <p className="">{blog.user.firstname}{blog.user.lastname}</p>
+                    {/* <img src={`${process.env.NEXT_PUBLIC_API_URL}/${blog.user.avatar}`} alt="" /> */}
+
+                  </p>
                   <h1 href="#" className="text-blue-800 font-bold text-3xl mb-2">
                     {blog.title}
                   </h1>

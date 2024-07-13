@@ -18,7 +18,7 @@ const UserProfile = () => {
       </div>
       <div className="flex flex-col sm:flex-row max-sm:gap-5 items-center justify-between mb-5">
         <div className="block">
-          <h3 className="font-manrope font-bold text-4xl text-beige-900 mb-1">
+          <h3 className="font-manrope font-bold text-4xl text-[#bcc4749] mb-1">
             Emma Smith
           </h3>
           <p className="font-normal text-base leading-7 text-gray-500">

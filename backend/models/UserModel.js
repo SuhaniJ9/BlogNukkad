@@ -17,7 +17,12 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    avatar:{
+        type: String,
+        default:'images.png'
     }
+    
 })
 
 module.exports = model('user', userSchema)
