@@ -42,8 +42,8 @@ router.delete('/delete/:id', (req, res) => {
         Model.findOne(req.body)
             .then((result) => {
                 if (result) {
-                    const { _id, firstname, lastname, email } = result
-                    const payload = { _id, firstname, lastname, email };
+                    const { _id, firstname, lastname, email,avatar } = result
+                    const payload = { _id, firstname, lastname, email,avatar };
     
                     jwt.sign(
                         payload,
@@ -54,7 +54,7 @@ router.delete('/delete/:id', (req, res) => {
                                 console.log(err);
                                 res.status(500).json({ message: 'error creating token' })
                             } else {
-                                res.status(200).json({ token, firstname, lastname, email })
+                                res.status(200).json({ token, firstname, lastname, email ,avatar})
                             }
                         }
                     )
