@@ -1,6 +1,5 @@
 'use client';
 import useAppContext from '@/context/appcontext';
-import { set } from 'mongoose';
 import { useParams } from 'next/navigation';
 import React, { useContext, useEffect, useState } from 'react';
 

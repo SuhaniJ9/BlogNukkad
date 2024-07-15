@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
   const ManageCompetition = () => {
   const[Compts, setCompts] = useState([]);
   const fetchCompts = async () => {
-    const res = await fetch("http://localhost:5000/competition/getall");
+  const res = await fetch("http://localhost:5000/competition/getall");
   console.log(res.status);
   if(res.status==200)
   {
@@ -90,8 +90,7 @@ if(res.status==200)
         
     </thead>
     
-    <tbody>
-   
+    <tbody>  
     
       {displayCompts()}
       
