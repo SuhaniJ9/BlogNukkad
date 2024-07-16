@@ -64,7 +64,17 @@ router.delete('/delete/:id', (req, res) => {
     });
 });
 
+router.get('/getbyid', verifyToken, (req, res) => {
+    Model.findById(req.user._id)
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((err) => {
+        res.status(500).json(err);
+    });
+    console.log(req.body);
 
+});
  router.post('/authenticate', (req, res) => {
         console.log(req.body);
         Model.findOne(req.body)
