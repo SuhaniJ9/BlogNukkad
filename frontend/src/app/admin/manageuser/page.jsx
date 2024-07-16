@@ -34,10 +34,10 @@ if(res.status==200)
     <tr>
        
         <th scope="col" className="px-6 py-3 text-lg text-blue-900">
-          {User.firstname}
+          {User.firstname} {User.lastname}
         </th>
         <th scope="col" className="px-6 py-3 text-lg text-blue-900">
-          {User.lastname}
+          {User.password}
         </th>
         <th scope="col" className="px-6 py-3 text-lg text-blue-900">
           {User.email}

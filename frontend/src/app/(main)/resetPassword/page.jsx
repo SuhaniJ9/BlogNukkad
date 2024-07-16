@@ -67,11 +67,11 @@ const ResetPassword = () => {
     onSubmit: (values) => {
       console.log(values);
       fetch(
-       ` ${process.env.NEXT_PUBLIC_API_URL}/user/update/${verifiedUser._id}`,
+       `${process.env.NEXT_PUBLIC_API_URL}/user/update/${verifiedUser._id}`,
         {
           method: "PUT",
           body: JSON.stringify({
-            password: values.password,
+          password: values.password,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -94,16 +94,15 @@ const ResetPassword = () => {
   });
   return (
     <>
-      <section className="bg-[#F5F5F5] dark:bg-gray-900">
+      <section className="bg-[#f2e8cf]">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a
             href="#"
-            className="flex items-center mb-6 text-2xl font-semibold text-black dark:text-white"
+            className="flex items-center mb-6 text-2xl font-bold text-[#bc4749]"
           >
-            <img className="w-12 h-12 mr-2" src="logo.png" alt="logo" />
-            VOX-MARKET
+            RESET PASSWORD
           </a>
-          <div className="w-full p-6 bg-purple-50 rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+          <div className="w-full p-6 bg-[#bc4749] rounded-lg shadow dark:border md:mt-0 sm:max-w-md sm:p-8">
             <h2 className="mb-1 text-xl justify-center text-center font-bold leading-tight tracking-tight text-black md:text-2xl dark:text-white">
               Change Password
             </h2>
@@ -111,14 +110,14 @@ const ResetPassword = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block mb-2 text-sm font-medium text-black dark:text-white"
-              >
+                className=" bg-[#bc4749] block mb-2 text-sm font-medium text-black"              >
                 Your email
               </label>
               <input
+              style={{ backgroundColor: "#f2e8cf" }}
                 type="email"
                 ref={emailRef}
-                className="bg-gray-50 border border-[#000] text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className=" text-black sm:text-sm rounded-lg block w-full p-2.5"
                 placeholder="name@company.com"
                 required=""
               />
@@ -127,24 +126,25 @@ const ResetPassword = () => {
               <button
                 type="Submit"
                 onClick={sendOTP}
-                className="mt-2 radius-xl bg-[#FC9B3C] border border-[#FC9B3C] w-1/2 rounded-lg"
+                className="text-white bg-blue-900 mt-2 hover:border-blue rounded-xl py-1 px-5 hover:scale-105 hover:bg-blue-500 font-semibold duration-300"
               >
                 Send OTP
               </button>
             </div>
             <div>
               <input
+              style={{ backgroundColor: "#f2e8cf" }}
                 type="text"
                 label="Enter OTP"
                 ref={otpRef}
                 placeholder="Enter OTP"
-                className="mt-5 radius-xl"
+                className="text-black sm:text-sm rounded-lg block p-2.5 mt-2"
               />
             </div>
             <div>
               <button
                 onClick={verifyOTP}
-                className="mt-2 radius-xl bg-[#FC9B3C] border border-[#FC9B3C] w-1/2 rounded-lg"
+                className="text-white mb-2 bg-blue-900 mt-2 hover:border-blue rounded-xl py-1 px-5 hover:scale-105 hover:bg-blue-500 font-semibold duration-300"
               >
                 Verify OTP
               </button>
@@ -154,66 +154,45 @@ const ResetPassword = () => {
                 <div>
                   <label
                     htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-black dark:text-white"
+                    className="bg-[#bc4749] block mb-2 text-sm font-medium text-black"
                   >
                     New Password
                   </label>
                   <input
+                    style={{ backgroundColor: "#f2e8cf" }}
                     type="password"
                     name="password"
                     onChange={resetForm.handleChange}
                     value={resetForm.values.password}
-                    className="bg-gray-50 border border-gray-300 text-[#000] sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="text-black sm:text-sm rounded-lg block w-full p-2.5 mb-2"
                     required=""
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="confirm-password"
-                    className="block mb-2 text-sm font-medium text-black dark:text-white"
+                    className="bg-[#bc4749] block mb-2 text-sm font-medium text-black"
                   >
                     Confirm password
                   </label>
                   <input
+                    style={{ backgroundColor: "#f2e8cf" }}
                     type="password"
                     name="cpassword"
                     onChange={resetForm.handleChange}
                     value={resetForm.values.cpassword}
-                    className="bg-gray-50 border border-gray-300 text-[#000] sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="text-black sm:text-sm rounded-lg block w-full p-2.5 mb-2"
                     required=""
                   />
                 </div>
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="newsletter"
-                      aria-describedby="newsletter"
-                      type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required=""
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label
-                      htmlFor="newsletter"
-                      className="font-light text-black dark:text-gray-300"
-                    >
-                      I accept the{" "}
-                      <a
-                        className="font-medium text-black hover:underline dark:text-primary-500"
-                        href="#"
-                      >
-                        Terms and Conditions
-                      </a>
-                    </label>
-                  </div>
-                </div>
+                <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="w-full text-white bg-[#FC9B3C]  border border-[#FC9B3C] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#FC9B3C] font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                 className="w-3/4 mx-auto text-white mb-2 bg-blue-900 mt-2 hover:border-blue rounded-xl py-1 px-5 hover:scale-105 hover:bg-blue-500 font-semibold duration-300"
                 >
-                  Reset passwod
+                  Reset password
                 </button>
+                </div>
               </form>
             )}
           </div>

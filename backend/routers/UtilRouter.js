@@ -16,10 +16,10 @@ const storage = multer.diskStorage({
 const myStorage = multer({ storage: storage });
 
 const mailConfig = {
-  service :'gmail',
-  auth : {
-user: process.env.EMAIL_ID,
-pass: process.env.EMAIL_PASSWORD,
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_ID,
+    pass: process.env.EMAIL_PASSWORD,
   }
 };
 
@@ -40,33 +40,34 @@ router.post('/sendotp', (req, res) => {
   generateOTP[req.body.email] = otp;
   console.log(generateOTP);
   transporter.sendMail({
-      from : process.env.EMAIL_ID,
-      to : req.body.email,
-      subject : 'OTP for Password Reset',
-      html: <p> OTP for password reset is <b>${otp}</b> </p>
+    from: process.env.EMAIL_ID,
+    to: req.body.email,
+    subject: 'OTP for Password Reset',
+    html: `<p> OTP for password reset is <b>${otp}</b> </p>`
   })
-  .then((info) => {
+    .then((info) => {
       return res.status(201).json(
-          {
-              msg: "OTP Sent",
-              info: info.messageId,
-              preview: nodemailer.getTestMessageUrl(info)
-          }
+        {
+          msg: "OTP Sent",
+          info: info.messageId,
+          preview: nodemailer.getTestMessageUrl(info)
+        }
       )
-  }).catch((err) => {
+    }).catch((err) => {
       console.log(err);
       return res.status(500).json({ msg: err });
-  });
+    });
 })
 
 
 router.get('/verifyotp/:email/:otp', (req, res) => {
-  const oldOTP = generatedOTP[req.params.email];
-  if(oldOTP == req.params.otp){
-      return res.status(200).json({msg : 'OTP Verified'});
-  }else{
-      return res.status(401).json({msg : 'OTP Not Verified'});
-    }
+  const oldOTP = generateOTP[req.params.email];
+  if (oldOTP == req.params.otp) {
+    return res.status(200).json({ msg: 'OTP Verified' });
+  } else {
+    return res.status(401).json({ msg: 'OTP Not Verified' });
+  }
 })
+
 
 module.exports = router;
