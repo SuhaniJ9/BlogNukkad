@@ -33,27 +33,30 @@ if(res.status==200)
  return Users.map((User) => (
     <tr>
        
-        <th scope="col" className="px-6 py-3 text-lg">
+        <th scope="col" className="px-6 py-3 text-lg text-blue-900">
           {User.firstname}
         </th>
-        <th scope="col" className="px-6 py-3 text-lg">
+        <th scope="col" className="px-6 py-3 text-lg text-blue-900">
           {User.lastname}
         </th>
-        <th scope="col" className="px-6 py-3 text-lg">
+        <th scope="col" className="px-6 py-3 text-lg text-blue-900">
           {User.email}
         </th>
         <button onClick = {() => {deleteUser(User._id)}} className="text-white bg-red-900 mt-2 hover:border-orange-700 rounded-xl py-1 px-5 hover:scale-105 hover:bg-orange-700 font-semibold duration-300 ">
                             Delete
                         </button>
+                        {/* <button onClick = {() => {UpdateUser(User._id)}} className="text-white bg-blue-900 ml-2 mt-2 hover:border-blue-700 rounded-xl py-1 px-5 hover:scale-105 hover:bg-blue-700 font-semibold duration-300 ">
+                            Update
+                        </button> */}
       </tr>
   )
 )}
   return(
     <div className="relative overflow-x-auto">
-  <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  bg-[#f2e8cf]">
-  <div className="border border-[#bc4749] mb-5 flex justify-between text-sm ">
+  <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  bg-[#f2e8cf] mx-2 mt-2">
+  
     
-    <thead className="text-xs text-gray-700 uppercase bg-[#f2e8cf] dark:text-[#bc4749]">
+    <thead className="text-xs text-gray-700 uppercase bg-[#bc4749] dark:text-[#f2e8cf]">
     <tr>
     <th scope="col" className="px-6 py-3 text-lg">
           First Name
@@ -67,17 +70,22 @@ if(res.status==200)
         <th scope="col" className="px-6 py-3 text-lg">
         Action
         </th>
+        
         </tr>
         
+        
     </thead>
-    </div>
+    
     <tbody>
-
+   
+    
       {displayUsers()}
       
     </tbody>
+    
   </table>
 </div>
+
 
   )
 }

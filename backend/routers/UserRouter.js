@@ -16,6 +16,17 @@ router.post('/create', async (req, res) => {
         })
     })
 
+router.put('/update/:id', (req, res) => {
+    Model.findByIdAndUpdate(req.params.id)
+     .then(result => {
+        res.status(200).json(result);
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    }
+     )
+})
+
 router.delete('/delete/:id', (req, res) => {
    Model.findByIdAndDelete(req.params.id)
    .then((result) =>{
@@ -24,6 +35,22 @@ router.delete('/delete/:id', (req, res) => {
     .catch((err) => {
         res.status(500).json(err);
     })
+   })
+   router.get('/getbyemail/:email', (req, res) => {
+    Model.findOne({email: req.params.email})
+    .then((result) => {
+        if(result){
+            res.status(200).json(result);
+        }
+        else
+        {
+        res.status(404).json({message: 'User not found'});
+        }
+    })
+    .catch((err) => {
+        res.status(500).json(err);
+    })
+    console.log(req.body)
    })
 
    router.get('/getall', (req, res) => {
@@ -42,8 +69,8 @@ router.delete('/delete/:id', (req, res) => {
         Model.findOne(req.body)
             .then((result) => {
                 if (result) {
-                    const { _id, firstname, lastname, email } = result
-                    const payload = { _id, firstname, lastname, email };
+                    const { _id, firstname, lastname, email,avatar } = result
+                    const payload = { _id, firstname, lastname, email,avatar };
     
                     jwt.sign(
                         payload,
@@ -54,7 +81,7 @@ router.delete('/delete/:id', (req, res) => {
                                 console.log(err);
                                 res.status(500).json({ message: 'error creating token' })
                             } else {
-                                res.status(200).json({ token, firstname, lastname, email })
+                                res.status(200).json({ token, firstname, lastname, email ,avatar})
                             }
                         }
                     )
