@@ -15,7 +15,7 @@ const uploadProfileImage = (e) => {
   const file = e.target.files[0];
   const fd = new FormData();
   fd.append('myfile', file)
-  fetch(`http://localhost5000/util/uploadfile`, {
+  fetch("http://localhost:5000/util/uploadfile", {
     method: "POST",
     body: fd,
   })

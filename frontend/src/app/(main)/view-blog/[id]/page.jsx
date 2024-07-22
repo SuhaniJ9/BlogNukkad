@@ -1,99 +1,81 @@
 'use client';
-import useAppContext from '@/context/appcontext';
+import MDEditor from '@uiw/react-md-editor';
 import { useParams } from 'next/navigation';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+]
 
 const ViewBlog = () => {
-    const {id} = useParams();
-    const[blog, setBlog] = useState([]);
-    const { currentUser, setCurrentUser } = useAppContext();
 
-    const fetchblog = () => {
-        fetch("http://localhost:5000/blog/getbyid/" + id)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setBlog(data);
-          setCurrentUser(data.user);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      
-    }
-   useEffect(() => {
-    fetchblog();
-   }, []);
+  const [blogData, setBlogData] = useState(null);
 
-const displayblog = () => {
-    if(blog !== null){
-        return(
-          <>
-          <div className='bg-[#f2e8cf]'>
-            <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative  bg-blue-900">
-            <div
-              className="bg-cover bg-center  text-center overflow-hidden"
+  const { id } = useParams();
 
-              style={{
-                minHeight: 500,
-                backgroundImage: `url(${process.env.NEXT_PUBLIC_URL}/${blog.cover})`,
-              }}
-              title="Woman holding a mug"
-            ></div>
-            <div className="max-w-3xl mx-auto">
-              <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
-                <div className="bg-[#f2e8cf] relative top-0 -mt-32 p-5 sm:p-10">
-                  <p className="">{new Date (blog.createdAt).toLocaleDateString()}
-                    <p className="">{blog.currentUser.firstname}{blog.currentUser.lastname}</p>
-                    {/* <img src={`${process.env.NEXT_PUBLIC_API_URL}/${blog.user.avatar}`} alt="" /> */}
+  const fetchBlogData = () => {
+    fetch('http://localhost:5000/blog/getbyid/' + id)
+      .then((response) => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        setBlogData(data);
 
-                  </p>
-                  <h1 href="#" className="text-blue-800 font-bold text-3xl mb-2">
-                    {blog.title}
-                  </h1>
-                  <p className="text-[#bc4749] text-lg leading-8 my-5">
-                    {blog.description}
-                  </p>
-                  <p className="text-[#bc4749] text-lg leading-8 my-5">
-                    {blog.content}
-                  </p>
-                 
-                  <a
-                    href="#"
-                    className="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out"
-                  >
-                    #{blog.category} 
-                  </a>
-                  
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    fetchBlogData();
+  }, []);
+
+  const formatDate = (date) => {
+    return new Date(date).getDay() + ', ' + new Date(date).getMonth() + ' ' + new Date(date).getDate() + ', ' + new Date(date).getFullYear();
+  }
+
+  const displayBlogs = () => {
+    if (blogData !== null)
+      return (
+        <div>
+          <h1 className='text-center text-blue-900  text-6xl font-bold'>{blogData.title}</h1>
+
+          <div className=''>
+            <img src={'http://localhost:5000/' + blogData.cover} className="h-60  mx-auto" alt="" />
+          </div>
+
+          <hr className='mb-20 border-black' />
+          <div className='grid grid-cols-12'>
+            <div className="col-span-3">
+
+              <div className="flex ">
+                <div className="font-medium dark:text-white">
+              <img className="w-16 h-16 rounded-full block mx-auto   mb-4 " src={`${process.env.NEXT_PUBLIC_API_URL}/${blogData.user.avatar}`} alt="" />
+                  <p className='text-center text-slate-500 text-md'>{new Date(blogData.createdAt).toLocaleDateString()}</p>
+
+                  <p className='text-center text-xl'>{blogData.user.firstname}</p>
+                  <div className="text-sm text-gray-500 text-center dark:text-gray-400">Joined in {MONTH_NAMES[new Date(blogData.createdAt).getMonth()] + ' ' + new Date(blogData.createdAt).getFullYear()}</div>
+                  <hr className='my-4 border-black' />
+                  <p className="">{blogData.tags}</p>
                 </div>
               </div>
             </div>
+            <div className="col-span-9 overflow-auto">
+              <MDEditor.Markdown source={blogData.content} className='overflow-auto' height="200px" />
+            </div>
           </div>
-          </div>
-          </>
-
-        )
-
-        
-}
-else{
-    return(
-        <div>
-            <h1>Loading...</h1>
         </div>
-    )
-}
-}
+      )
+    else return <p>Loading...</p>
+  }
 
-return(
-    <>
-    {displayblog()};
-    </>
-
-)
+  return (
+    <div className='pt-32 relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
+      {displayBlogs()}
+    </div>
+  )
 }
 
 export default ViewBlog;

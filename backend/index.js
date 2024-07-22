@@ -7,7 +7,7 @@ const competitionRouter = require('./routers/CompetitionRouter');
 const utilRouter = require('./routers/UtilRouter');
 const blogRouter = require('./routers/BlogRouter');
 const contactRouter = require('./routers/ContactRouter');
-
+const participationRouter = require('./routers/ParticipationRouter');
 
 
 app.use(express.json());
@@ -24,6 +24,7 @@ app.use('/util', utilRouter);
 app.use( express.static('./uploads'));
 app.use('/blog', blogRouter);
 app.use('/contact', contactRouter);
+app.use('/participate', participationRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port 5000`);

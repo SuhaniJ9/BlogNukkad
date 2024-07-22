@@ -34,7 +34,7 @@ const BrowseCompetitions = () => {
         <a href={`/view-competition/${compt._id}`}>
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_URL}/${compt.image}`}
+            src={'http://localhost:5000/' + compt.image}
             alt="Sunset in the mountains"
           />
           <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></div>

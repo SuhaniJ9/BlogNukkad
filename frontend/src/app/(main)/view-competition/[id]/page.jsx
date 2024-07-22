@@ -57,7 +57,7 @@ const CompetitionDetails = () => {
       toast.error('Please select a blog to participate in competition');
       return;
     }
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/check-participation/${id}`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/participate/check-participation/${id}`, {
       headers: {
         'x-auth-token': currentUser.token
       }
@@ -66,7 +66,7 @@ const CompetitionDetails = () => {
       .then(data => {
         console.log(data);
         if (data === null) {
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/add`, {
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/participate/add`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -101,13 +101,18 @@ const CompetitionDetails = () => {
   const displayCompetition = () => {
     if (competitionData !== null) {
       return <>
-      <div className="h-96">
-        <header className=' bg-white'>
-          <h1 className='text-3xl text-purple-800 font-semibold mb-12 text-center'>{competitionData.topic}</h1>
-        </header>
+      <div className='bg-[#f2e8cf]'>
+          <h1 className='bg-[#f2e8cf] text-3xl text-[#bc4749] font-semibold text-center'>{competitionData.topic}</h1>
+          <div className="border border-[#bc4749] mb-5 flex justify-between text-sm ">
+    
+         <h2 className='bg-[#f2e8cf] text-lg text-blue-800'>{competitionData.description}</h2>
+         </div>
+        <div className='font-semibold text-blue-800 '>
+          Starts from {new Date(competitionData.createdAt).toLocaleDateString()}
+          </div>
         <div>
 
-          <select onChange={e => setSelBlog(e.target.value)} className='mx-auto text-center mb-12 block my-3'>
+          <select onChange={e => setSelBlog(e.target.value)} className='mx-auto bg-[#bc4749] text-center mb-12 block my-3'>
             <option  value="">Select Blog</option>
             {blogList.map((blog) => {
               return <option value={blog._id}>{blog.title}</option>
@@ -116,10 +121,10 @@ const CompetitionDetails = () => {
           {
             checkCompetionExpired() ? displayWinner() :
               (
-                <button onClick={attemptParticipate}>Participate in Compeition</button>
+                <button className='bg-[#bc4749] text-center mr-10' onClick={attemptParticipate}>Participate in Compeition</button>
               )
           }
-  {/* <button onClick={attemptParticipate}>Participate in Compeition</button> */}
+          
         </div>
         </div>
       </>
@@ -143,13 +148,13 @@ const CompetitionDetails = () => {
     return <div>
       <h3 className='text-red-800 text-center text-2xl font-semibold animate-bounce'>Competition Over</h3>
       {
-        competitionData.winner ? <p className='text-center text-lg my-3 '>Winner: {competitionData.winner.name}</p> : <p className='text-center text-lg my-3 '>Result not declared Yet</p>
+        competitionData.winner ? <p className='text-center text-lg  '>Winner: {competitionData.winner.name}</p> : <p className='text-center text-lg my-3 '>Result not declared Yet</p>
       }
     </div>
   }
 
   return (
-    <div className='pt-40'>
+    <div className=''>
       {displayCompetition()}
     </div>
     

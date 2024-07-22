@@ -1,7 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import { Dialog } from '@headlessui/react'
+import AddCompetition from './addcompetition'
 
   const ManageCompetition = () => {
+    const [isOpen, setIsOpen] = useState(false)
   const[Compts, setCompts] = useState([]);
   const fetchCompts = async () => {
   const res = await fetch("http://localhost:5000/competition/getall");
@@ -35,7 +38,7 @@ if(res.status==200)
        <th scope="col" className="px-6 py-3 text-lg text-blue-900">
        <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_URL}/${Compt.image}`}
+            src={'http://localhost:5000/' + Compt.image}
             alt="competition image"
           />
         </th>
@@ -62,6 +65,29 @@ if(res.status==200)
 )}
   return(
     <div className="relative overflow-x-auto">
+      <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
+        <Dialog.Panel>
+          <Dialog.Title>Deactivate account</Dialog.Title>
+          <Dialog.Description>
+            This will permanently deactivate your account
+          </Dialog.Description>
+
+
+          <AddCompetition close={() => setIsOpen(false)} />
+
+          {/* <button onClick={() => setIsOpen(false)}>Deactivate</button>
+                <button onClick={() => setIsOpen(false)}>Cancel</button> */}
+        </Dialog.Panel>
+      </Dialog>
+
+      <button
+        type="button"
+        onClick={e => setIsOpen(true)}
+        className="mt-16 py-3 mx-2 mb-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+      >
+         Add Competition
+      </button>
+      
   <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  bg-[#f2e8cf] mx-2 mt-2">
   
     

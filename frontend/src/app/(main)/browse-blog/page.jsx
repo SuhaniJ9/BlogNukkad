@@ -36,7 +36,7 @@ const BrowseBlogs = () => {
           <div className="relative overflow-hidden">
             <img
               className="object-cover w-full h-full"
-              src={`${process.env.NEXT_PUBLIC_URL}/${blogs.cover}`} alt="Product"
+              src={'http://localhost:5000/' + blogs.cover} alt="Product"
             />
             <div className="absolute inset-0 bg-black opacity-40" />
             <div className="absolute inset-0 flex items-center justify-center">
