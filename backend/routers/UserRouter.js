@@ -80,8 +80,8 @@ router.get('/getbyid', verifyToken, (req, res) => {
         Model.findOne(req.body)
             .then((result) => {
                 if (result) {
-                    const { _id, firstname, lastname, email,avatar } = result
-                    const payload = { _id, firstname, lastname, email,avatar };
+                    const { _id, firstname, lastname, email,avatar,role } = result
+                    const payload = { _id, firstname, lastname, email,avatar,role };
     
                     jwt.sign(
                         payload,
@@ -92,7 +92,7 @@ router.get('/getbyid', verifyToken, (req, res) => {
                                 console.log(err);
                                 res.status(500).json({ message: 'error creating token' })
                             } else {
-                                res.status(200).json({ token, firstname, lastname, email ,avatar})
+                                res.status(200).json({ token, firstname, lastname, email ,avatar,role})
                             }
                         }
                     )

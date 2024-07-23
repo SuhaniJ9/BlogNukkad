@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import AddCompetition from './addcompetition'
+import Link from 'next/link'
 
   const ManageCompetition = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -57,9 +58,9 @@ if(res.status==200)
         <button onClick = {() => {deleteCompt(Compt._id)}} className="text-white bg-red-900 mt-2 hover:border-orange-700 rounded-xl py-1 px-5 hover:scale-105 hover:bg-orange-700 font-semibold duration-300 ">
           Delete
          </button>
-        <button onClick = {() => {UpdateCompt(Compt._id)}} className="text-white bg-blue-900 mt-2 hover:border-blue-700 rounded-xl py-1 px-5 hover:scale-105 hover:bg-blue-700 font-semibold duration-300 ">
+        <Link href={"/admin/updatecompetition/" + Compt._id} className="text-white bg-blue-900 mt-2 hover:border-blue-700 rounded-xl py-1 px-5 hover:scale-105 hover:bg-blue-700 font-semibold duration-300 ">
           Update
-         </button>
+         </Link>
       </tr>
   )
 )}

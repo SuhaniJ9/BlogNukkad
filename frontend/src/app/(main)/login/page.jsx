@@ -7,8 +7,12 @@ import * as Yup from 'yup'
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import useAppContext from '@/context/appcontext';
 
 const Login = () => {
+
+    const { setLoggedIn } = useAppContext()
+
 const router = useRouter();
     const addUserSchema = Yup.object().shape({
         email: Yup.string().email('Invalid email').required('Required'),
@@ -36,15 +40,22 @@ const router = useRouter();
                 toast.success("Login Successfull");
                 const data = await res.json();
                 console.log(data);
-               sessionStorage.setItem("user", JSON.stringify(data));
-                router.push("/");
-
-            
-              } else if (res.status === 401) {
-                toast.error("Invalid Credentials");
-              } else {
-                toast.error("Some error occured");
+               sessionStorage.setItem('isloggedIn',true);
+               if(data.role=='admin')
+               {
+                sessionStorage.setItem('admin', JSON.stringify(data));
+                router.push("/admin/dashboard");
+               }
+               else {
+                sessionStorage.setItem('user', JSON.stringify(data));
+                setLoggedIn(true);
+                toast.success("Login Successfull");
+                router.push("/");   
+               }
               }
+               else{
+                toast.error("Something went wrong");
+               }
             },
         validationSchema: addUserSchema
     });

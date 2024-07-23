@@ -39,33 +39,38 @@ const ViewBlog = () => {
   const displayBlogs = () => {
     if (blogData !== null)
       return (
-        <div>
-          <h1 className='text-center text-blue-900  text-6xl font-bold'>{blogData.title}</h1>
+        <div className='bg-[#f2e8cf]'>
+          <div>
+          <h1 className='text-center text-[#bc4749] text-3xl font-bold'>{blogData.title}</h1>
 
           <div className=''>
-            <img src={'http://localhost:5000/' + blogData.cover} className="h-60  mx-auto" alt="" />
-          </div>
+            <img src={'http://localhost:5000/' + blogData.cover} className="h-auto w-auto  mx-auto" alt="" />
+          
 
-          <hr className='mb-20 border-black' />
+          <hr className='mb-20 border-[#bc4749]' />
           <div className='grid grid-cols-12'>
             <div className="col-span-3">
 
               <div className="flex ">
-                <div className="font-medium dark:text-white">
+                <div className="font-medium text-[#bc4749]">
               <img className="w-16 h-16 rounded-full block mx-auto   mb-4 " src={`${process.env.NEXT_PUBLIC_API_URL}/${blogData.user.avatar}`} alt="" />
-                  <p className='text-center text-slate-500 text-md'>{new Date(blogData.createdAt).toLocaleDateString()}</p>
+                  <p className='text-center text-[#bc4749] text-md'>{new Date(blogData.createdAt).toLocaleDateString()}</p>
 
                   <p className='text-center text-xl'>{blogData.user.firstname}</p>
-                  <div className="text-sm text-gray-500 text-center dark:text-gray-400">Joined in {MONTH_NAMES[new Date(blogData.createdAt).getMonth()] + ' ' + new Date(blogData.createdAt).getFullYear()}</div>
-                  <hr className='my-4 border-black' />
-                  <p className="">{blogData.tags}</p>
+                  <div className="text-sm text-[#bc4749] text-center">Joined in {MONTH_NAMES[new Date(blogData.createdAt).getMonth()] + ' ' + new Date(blogData.createdAt).getFullYear()}</div>
+                  <hr className='my-4 border-[#bc4749]' />
+                  <p className="text-center"># {blogData.tags}</p>
                 </div>
               </div>
             </div>
+           
             <div className="col-span-9 overflow-auto">
-              <MDEditor.Markdown source={blogData.content} className='overflow-auto' height="200px" />
+              
+              <MDEditor.Markdown source={blogData.content} className='overflow-auto bg-[#f2e8cf]' height="200px" />
             </div>
           </div>
+        </div>
+        </div>
         </div>
       )
     else return <p>Loading...</p>
