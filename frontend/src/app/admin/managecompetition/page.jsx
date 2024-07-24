@@ -55,7 +55,10 @@ if(res.status==200)
         <th scope="col" className="px-6 py-3 text-lg text-blue-900">
           {Compt.endDate}
         </th>
-        <button onClick = {() => {deleteCompt(Compt._id)}} className="text-white bg-red-900 mt-2 hover:border-orange-700 rounded-xl py-1 px-5 hover:scale-105 hover:bg-orange-700 font-semibold duration-300 ">
+        <th scope="col" className="px-6 py-3 text-lg text-blue-900">
+          {Compt.winner}
+        </th>
+        <button onClick = {() => {deleteCompt(Compt._id)}} className="text-white bg-red-900 mt-2 mb-2 hover:border-orange-700 rounded-xl py-1 px-5 hover:scale-105 hover:bg-orange-700 font-semibold duration-300 ">
           Delete
          </button>
         <Link href={"/admin/updatecompetition/" + Compt._id} className="text-white bg-blue-900 mt-2 hover:border-blue-700 rounded-xl py-1 px-5 hover:scale-105 hover:bg-blue-700 font-semibold duration-300 ">
@@ -80,15 +83,14 @@ if(res.status==200)
                 <button onClick={() => setIsOpen(false)}>Cancel</button> */}
         </Dialog.Panel>
       </Dialog>
-
+      
       <button
         type="button"
         onClick={e => setIsOpen(true)}
-        className="mt-16 py-3 mx-2 mb-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+        className="mt-16 py-3 mx-2 mb-3 px-4 inline-flex text-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
       >
          Add Competition
       </button>
-      
   <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  bg-[#f2e8cf] mx-2 mt-2">
   
     
@@ -108,6 +110,9 @@ if(res.status==200)
         </th>
         <th scope="col" className="px-6 py-3 text-lg">
         End Date
+        </th>
+        <th scope="col" className="px-6 py-3 text-lg">
+        Winner
         </th>
         <th scope="col" className="px-6 py-3 text-lg">
         Action

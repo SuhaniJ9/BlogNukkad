@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models/ContactModel')
 
-router.post('/create', async (req, res) => {
+router.post('/add', async (req, res) => {
     console.log(req.body)
     new Model(req.body).save()
         .then(() => {

@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import Navbar from '../navbar';
 
 
 const BrowseCompetitions = () => {
@@ -26,7 +27,7 @@ const BrowseCompetitions = () => {
 
   const displaycompetitions = () => {
     return competition.map((compt) => (
-      
+    
       
       <div className="rounded overflow-hidden shadow-lg flex flex-col ">
       
@@ -62,6 +63,9 @@ const BrowseCompetitions = () => {
   }
   return (
     <>
+    <Navbar>
+
+    </Navbar>
     <div className=' bg-[#f2e8cf]'>
 <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16  ">
   <div className="border border-[#bc4749] mb-5 flex justify-between text-sm ">

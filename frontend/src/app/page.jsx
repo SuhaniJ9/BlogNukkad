@@ -1,14 +1,22 @@
 'use client'
 import React from 'react';
 import Navbar from './(main)/navbar';
-
+import { useFormik } from 'formik';
+import { toast } from 'react-hot-toast';
 
 const Home = () => {
+  const contact = useFormik({
+    initialValues:{
+      name:"",
+      email:"",
+      message:""
+    },
+  
   
   onSubmit: async (values,action) => {
     console.log(values);
     
-    const res = await fetch('http://localhost:5000/contact', {
+    const res = await fetch('http://localhost:5000/contact/add', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(values),
@@ -16,14 +24,15 @@ const Home = () => {
       console.log(res.status);
       action.resetForm();
       if(res.status === 200){
-          toast.success("User Created")
+          toast.success("Query Submitted")
       }
           else
           {
-              toast.error("User Creation Failed")
+              toast.error("Query Not Submitted")
           }
-
+        
 }
+});
   return (
     <>
       <Navbar>
@@ -53,6 +62,7 @@ const Home = () => {
                   id="hs-search-article-1"
                   className="py-2.5 px-4 bg-slate-300 text-[#bc4749] block w-full border-blue rounded-lg focus:border-white-500 focus:ring-white-500"
                   placeholder="Search blogs"
+                  
                 />
               </div>
               </div>
@@ -585,7 +595,7 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
           <h2 className="mb-4 text-2xl font-bold dark:text-black">
             Ready to Get Started?
           </h2>
-          <form id="contactForm" >
+          <form id="contactForm" onSubmit={contact.handleSubmit} >
             <div className="mb-6">
               <div className="mx-0 mb-1 sm:mb-4">
                 <div className="mx-0 mb-1 sm:mb-4">
@@ -600,6 +610,8 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
                     placeholder="Your name"
                     className="mb-2 w-full bg-red-800 rounded-md border border-dark:text-[#bc4749] py-2 pl-2 pr-4 shadow-md sm:mb-0"
                     name="name"
+                    onChange={contact.handleChange}
+                  value={contact.values.name}
                   />
                 </div>
                 <div className="mx-0 mb-1 sm:mb-4">
@@ -614,6 +626,8 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
                     placeholder="Your email address"
                     className="mb-2 bg-red-800 w-full rounded-md border-black-500 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
                     name="email"
+                    onChange={contact.handleChange}
+                  value={contact.values.email}
                   />
                 </div>
               </div>
@@ -630,6 +644,8 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
                   placeholder="Write your message..." 
                   className="mb-2 w-full bg-red-800 text-white rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
                   defaultValue={""}
+                  onChange={contact.handleChange}
+                  value={contact.values.message}
                 />
               </div>
             </div>

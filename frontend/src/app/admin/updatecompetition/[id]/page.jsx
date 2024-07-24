@@ -23,7 +23,7 @@ const ViewCompetition = () => {
   }, []);
 
   const fetchParticipants = () => {
-    fetch(`http://localhost:5000/participation/getbycompetition/${id}`)
+    fetch(`http://localhost:5000/participate/getbycompetition/${id}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -35,8 +35,8 @@ const ViewCompetition = () => {
     if (competitionDetails !== null) {
       return (
         <div>
-          <h1>{competitionDetails.topic}</h1>
-          <p>{competitionDetails.description}</p>
+          <h1 className='mb-4 text-4xl font-extrabold leading-none tracking-tight text-[#bc4749] md:text-5xl lg:text-6xl'>{competitionDetails.topic}</h1>
+          <p className=' text-lg font-normal text-[#bc4749] lg:text-xl '>{competitionDetails.description}</p>
         </div>
       )
     } else {
@@ -65,10 +65,10 @@ const ViewCompetition = () => {
     if (participantList.length > 0) {
       return (
         <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                <th scope="col" className="px-6 py-3">
+          <table className="w-full text-sm text-left  rtl:text-right mt-5">
+            <thead className="text-xs text-[#f2e8cf] border uppercase bg-[#bc4749]  ">
+              <tr className=''>
+                <th scope="col" className="px-6 py-3 ">
                   Participant name
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -85,24 +85,24 @@ const ViewCompetition = () => {
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
               {
                 participantList.map((participant, index) => (
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                  <tr className="bg-[#bc4749] border-b border-bg-[#f2e8cf]">
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      className="px-6 py-4 font-medium text-[#f2e8cf] whitespace-nowrap"
                     >
-                      {participant.user.name}
+                      {participant.user.firstname} {participant.user.lastname}
                     </th>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 text-[#f2e8cf] whitespace-nowrap">
                       {new Date(participant.createdAt).toLocaleDateString()}
                     </td>
 
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 text-[#f2e8cf] whitespace-nowrap">
                       {participant.blog.title}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 text-[#f2e8cf] whitespace-nowrap">
                       {new Date(participant.blog.createdAt).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
