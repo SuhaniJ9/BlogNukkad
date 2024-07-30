@@ -50,27 +50,12 @@ const Home = () => {
   <div className="relative top-0 left-0 w-full h-full z-10 bg-black/50 flex items-center justify-center flex-col gap-5 ">
     <h2 className="text-4xl font-bold font-manrope text-white"> BLOG NUKKAD</h2>
     <h6 className="text-xl font-bold font-manrope text-white">Share what you know. Learn what you don't. </h6>
-    <div className="mt-7 sm:mt-12 mx-auto max-w-xl relative">
-          {/* Form */}
-          <form>
-            <div  className="bg-white relative z-10 flex space-x-3 p-3 border rounded-lg shadow-lg shadow-white-100 ">
-              <div className="flex-[1_0_0%] ">
-                
-                <input
-                  type="text"
-                  name="hs-search-article-1"
-                  id="hs-search-article-1"
-                  className="py-2.5 px-4 bg-slate-300 text-[#bc4749] block w-full border-blue rounded-lg focus:border-white-500 focus:ring-white-500"
-                  placeholder="Search blogs"
-                  
-                />
-              </div>
-              </div>
-          </form>
-          
-          {/* End Form */}
+    <div className="mt-5 sm:mt-5 mx-auto max-w-xl relative">
+      
+<h1 class="text-5xl font-extrabold text-center leading-none tracking-tight text-white md:text-5xl lg:text-6xl dark:text-white">Be <span class="text-blue-600 dark:text-[#f2e8cf]  text-decoration-line: underline">the India's #1</span> Writer</h1>
+
           <div className="text-center">
-          <div className="mt-10 sm:mt-20">
+          <div className="mt-5 sm:mt-6">
           <a
             className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-black-500 bg-black text-black-800 shadow-sm hover:bg-[#bc4749] disabled:opacity-50 disabled:pointer-events-none dark:bg-black-900 dark:border-black-700 dark:text-white dark:hover:bg-black-800"
             href="#"
@@ -258,11 +243,8 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
         <h2 className="font-heading font-bold tracking-tight text-gray-900 dark:text-[#bc4749] text-3xl sm:text-5xl">
           <u>Latest Winners</u>
         </h2>
-        <h3 className="font-heading font-bold mt-5 tracking-tight text-gray-900 dark:text-[#bc4749] text-3xl sm:text-l">
-          Click Read More for reading their blogs.
-        </h3>
         </div>
-  <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
+  <div className="relative items-center w-full px-5 py-2 mx-auto md:px-12 lg:px-24 max-w-7xl">
     <div className="grid w-full grid-cols-1 gap-6 mx-auto lg:grid-cols-3">
       <div className="p-6">
         <img
@@ -277,16 +259,6 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
         "Liora’s blog has always been a beacon of inspiration.
         Her elegant prose and insightful topics make her a standout winner. This award is a well-deserved recognition of her exceptional talent and hard work."
         </p>{" "}
-        <div className="mt-4">
-          <a
-            href="#"
-            className="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-600"
-            title="read more"
-          >
-            {" "}
-            Read More »{" "}
-          </a>
-        </div>
       </div>
       <div className="p-6">
         <img
@@ -301,16 +273,6 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
         "Soren’s blog is consistently impressive, offering fresh perspectives and insightful content.
         His ability to engage readers is remarkable. Winning this competition is a true reflection of his outstanding skills."
         </p>{" "}
-        <div className="mt-4">
-          <a
-            href="#"
-            className="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-600"
-            title="read more"
-          >
-            {" "}
-            Read More »{" "}
-          </a>
-        </div>
       </div>
       <div className="p-6">
         <img
@@ -325,16 +287,6 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
         "Nina’s blog is a joy to read, with engaging and informative content that resonates with readers. 
         Her passion and effort are evident in every post. Congratulations on this well-deserved victory!"
         </p>{" "}
-        <div className="mt-4">
-          <a
-            href="#"
-            className="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-600"
-            title="read more"
-          >
-            {" "}
-            Read More »{" "}
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -345,9 +297,7 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
     <li className="relative flex flex-col sm:flex-row xl:flex-col items-start">
       <div className="order-1 sm:ml-6 xl:ml-0">
         <h3 className="mb-1 text-slate-900 font-semibold">
-          <span className="mb-1 block text-sm leading-6 text-indigo-500">
-            Headless UI
-          </span>
+         
           The Insightful Chronicles
 
         </h3>
@@ -358,7 +308,7 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
         </div>
         <a
           className="group inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 focus:ring-slate-500 mt-6"
-          href=""
+          href="/browse-blog"
         >
           Learn more
           <span className="sr-only">
@@ -390,9 +340,7 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
     <li className="relative flex flex-col sm:flex-row xl:flex-col items-start">
       <div className="order-1 sm:ml-6 xl:ml-0">
         <h3 className="mb-1 text-slate-900 font-semibold">
-          <span className="mb-1 block text-sm leading-6 text-purple-500">
-            Heroicons
-          </span>
+         
           Everyday Wonders
         </h3>
         <div className="prose prose-slate prose-sm text-slate-600">
@@ -402,7 +350,7 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
         </div>
         <a
           className="group inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 focus:ring-slate-500 mt-6"
-          href=""
+          href="/browse-blog"
         >
           Learn more
           <span className="sr-only">
@@ -434,9 +382,7 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
     <li className="relative flex flex-col sm:flex-row xl:flex-col items-start">
       <div className="order-1 sm:ml-6 xl:ml-0">
         <h3 className="mb-1 text-slate-900 font-semibold">
-          <span className="mb-1 block text-sm leading-6 text-cyan-500">
-            Hero Patterns
-          </span>
+          
           Pathways to Growth
         </h3>
         <div className="prose prose-slate prose-sm text-slate-600">
@@ -446,7 +392,7 @@ src="https://i.pinimg.com/564x/49/e6/6a/49e66a6205ec9c492378823f4e310c8f.jpg"   
         </div>
         <a
           className="group inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 focus:ring-slate-500 mt-6"
-          href=""
+          href="/browse-blog"
         >
           Learn more
           <span className="sr-only">

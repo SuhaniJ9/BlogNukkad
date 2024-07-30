@@ -50,7 +50,7 @@ const router = useRouter();
                 sessionStorage.setItem('user', JSON.stringify(data));
                 setLoggedIn(true);
                 toast.success("Login Successfull");
-                router.push("/");   
+                router.push("/user/createBlog");   
                }
               }
                else{
@@ -130,6 +130,7 @@ const router = useRouter();
                         >
                             Login
                         </button>
+                    
                         
                     </form>
                     <div className="mt-4 text-sm flex text-gray-700 justify-between items-center container-mr">

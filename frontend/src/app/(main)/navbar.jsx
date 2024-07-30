@@ -83,13 +83,7 @@ const showloggedIn= () => {
         {/* Button Group */}
         <div className="flex items-center gap-x-2 ms-4 py-1 md:ps-6 md:order-3 md:col-span-3">
         
-              <a style={{color:"#bc4749"}}
-                className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black "
-                href="/about"
-                aria-current="page"
-              >
-                About Us
-              </a>
+              
               {showloggedIn()}
           <div className="md:hidden">
             <button
@@ -140,15 +134,7 @@ const showloggedIn= () => {
           className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block md:w-auto md:basis-auto md:order-2 md:col-span-6"
         >
           <div className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
-            <div>
-              <a style={{color:"#bc4749"}}
-                className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
-                href="/user/createBlog"
-                aria-current="page"
-              >
-                Write Post
-              </a>
-            </div>
+          
             <div>
               <a style={{color:"#bc4749"}}
                 className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black"
@@ -164,7 +150,14 @@ const showloggedIn= () => {
               >
                 Browse Blogs
               </a>
-            </div>                      
+            </div>    
+            <a style={{color:"#bc4749"}}
+                className="py-3 px-4 inline-flex items-center gap-x-2 text-lg font-semibold rounded-xl border border-gray-200 text-black hover:bg-slate-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-slate-200 dark:text-black dark:hover:text-black "
+                href="/about"
+                aria-current="page"
+              >
+                About Us
+              </a>                  
           </div>
         </div>
         {/* End Collapse */}

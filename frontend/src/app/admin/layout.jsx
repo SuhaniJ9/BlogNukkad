@@ -59,12 +59,7 @@ const Layout = ({ children }) => {
                      
                                 </Link>
                             </div>
-                            <div className="hidden xl:flex justify-start p-6 items-center space-x-6 mt-10 ">
-
-
-
-                           </div>
-                           <div className="hidden xl:flex justify-start p-6 items-center space-x-6 mt-10">
+                           <div className="hidden xl:flex justify-start p-6 items-center space-x-6 mt-10 mb-10">
 
 
 
@@ -115,7 +110,7 @@ const Layout = ({ children }) => {
 
                         </div>
                     </div>
-                    <div className="p-5 ms-60 w-full bg-[#f2e8cf]">
+                    <div className="p-5 ms-60 w-full bg-[#f2e8cf] overflow-auto">
                         {children}
                     </div>
                 </div>

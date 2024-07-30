@@ -37,7 +37,7 @@ const router = useRouter();
           console.log(response.status);
           if(response.status === 200){
             toast.success('Blog Added')
-            router.push("/browse-blog")
+            router.push("/")
           }
           else{
             toast.error('some error occured')
