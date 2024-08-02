@@ -3,7 +3,6 @@ const router = express.Router();
 const Model = require('../models/ParticipationModel');
 const verifyToken = require('./VerifyToken');
 
-
 router.post('/add', verifyToken, (req, res) => {
     req.body.user = req.user._id;
     console.log(req.body);

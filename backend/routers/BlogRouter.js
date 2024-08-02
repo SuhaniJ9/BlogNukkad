@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Model = require('../Models/blogModel');
+const Model = require('../models/BlogModel');
 const verifyToken = require('./VerifyToken');
 
 router.post('/add', verifyToken, (req, res) => {
@@ -38,7 +38,7 @@ router.delete('/delete/:id', (req, res) => {
 });
 
 router.get('/getbyid/:id', (req, res) => {
-    Model.findById(req.params.id) //params is used to access parameters(for eg. id)
+    Model.findById(req.params.id).populate('user')
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {
