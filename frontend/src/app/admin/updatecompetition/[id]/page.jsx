@@ -36,7 +36,7 @@ const ViewCompetition = () => {
       return (
         <div>
           <h1 className='mb-4 text-4xl font-extrabold leading-none tracking-tight text-[#bc4749] md:text-5xl lg:text-6xl'>{competitionDetails.topic}</h1>
-          <p className=' text-lg font-normal text-[#bc4749] lg:text-xl '>{competitionDetails.description}</p>
+          <p className='text-lg font-normal text-[#bc4749] lg:text-xl'>{competitionDetails.description}</p>
         </div>
       )
     } else {
@@ -65,10 +65,10 @@ const ViewCompetition = () => {
     if (participantList.length > 0) {
       return (
         <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left  rtl:text-right mt-5">
-            <thead className="text-xs text-[#f2e8cf] border uppercase bg-[#bc4749]  ">
-              <tr className=''>
-                <th scope="col" className="px-6 py-3 ">
+          <table className="w-full text-sm text-left rtl:text-right mt-5">
+            <thead className="text-xs text-[#f2e8cf] border uppercase bg-[#bc4749]">
+              <tr>
+                <th scope="col" className="px-6 py-3">
                   Participant name
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -85,10 +85,10 @@ const ViewCompetition = () => {
                 </th>
               </tr>
             </thead>
-            <tbody >
+            <tbody>
               {
                 participantList.map((participant, index) => (
-                  <tr className="bg-[#bc4749] border-b border-bg-[#f2e8cf]">
+                  <tr className="bg-[#bc4749] border-b border-bg-[#f2e8cf]" key={index}>
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-[#f2e8cf] whitespace-nowrap"
@@ -98,26 +98,23 @@ const ViewCompetition = () => {
                     <td className="px-6 py-4 text-[#f2e8cf] whitespace-nowrap">
                       {new Date(participant.createdAt).toLocaleDateString()}
                     </td>
-
                     <td className="px-6 py-4 text-[#f2e8cf] whitespace-nowrap">
-                      {participant.blog.title}
+                      {participant.blog ? participant.blog.title : 'No blog'}
                     </td>
                     <td className="px-6 py-4 text-[#f2e8cf] whitespace-nowrap">
-                      {new Date(participant.blog.createdAt).toLocaleDateString()}
+                      {participant.blog ? new Date(participant.blog.createdAt).toLocaleDateString() : 'No date'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button className="bg-blue-500 text-white px-4 py-2 rounded-lg" onClick={
                         () => declareWinner(participant._id)
                       } >Declare Winner</button>
                     </td>
-
                   </tr>
                 ))
               }
             </tbody>
           </table>
         </div>
-
       )
     } else {
       return <div>No participants</div>

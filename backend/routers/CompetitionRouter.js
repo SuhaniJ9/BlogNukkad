@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Model = require('../models/CompetitionModel');
-const verifyToken = require('./VerifyToken');
 
 router.post('/add', (req, res) => {
     console.log(req.body);
@@ -37,7 +36,7 @@ router.delete('/delete/:id', (req, res) => {
 });
 
 router.get('/getbyid/:id', (req, res) => {
-    Model.findById(req.params.id)
+    Model.findById(req.params.id).populate('winner')
     .then((result) => {
         res.status(200).json(result);
     }).catch((err) => {

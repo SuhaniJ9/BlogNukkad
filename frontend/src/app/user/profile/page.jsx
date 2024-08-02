@@ -6,17 +6,28 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 
 const UserProfile = () => {
-
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
 
+  useEffect(() => {
+    if (!currentUser) {
+      // Fetch user data if not available in session storage
+      // Assume there is an endpoint to get the current user
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/getcurrentuser`)
+        .then(res => res.json())
+        .then(data => {
+          setCurrentUser(data);
+          sessionStorage.setItem("user", JSON.stringify(data));
+        });
+    }
+  }, []);
 
   const uploadProfileImage = (e) => {
     const file = e.target.files[0];
     const fd = new FormData();
     fd.append('myfile', file)
-    fetch("http://localhost:5000/util/uploadfile", {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
       method: "POST",
       body: fd,
     })
@@ -27,30 +38,26 @@ const UserProfile = () => {
         }
       })
   }
-  const updateProfile = (data) => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/update/${currentUser._id}`,
-      {
-        method: 'PUT',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      })
-      .then(res => {
-        console.log(res.status)
-        toast.success('Updated successfully')
 
-        return res.json()
-      })
+  const updateProfile = (data) => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/update/${currentUser._id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(res => res.json())
       .then(data => {
-        console.log(data),
-          setCurrentUser(data)
+        toast.success('Updated successfully');
+        setCurrentUser(data);
+        sessionStorage.setItem("user", JSON.stringify(data));
       })
       .catch((err) => {
         console.log(err);
+        toast.error('Update failed');
       });
   }
-
 
   return (
     <section className="relative pt-40 pb-24">
@@ -59,53 +66,50 @@ const UserProfile = () => {
         alt="cover-image"
         className="w-full absolute top-0 left-0 z-0 h-60"
       />
-      < div className="bg-[#f2e8cf]">
-        <div className="w-full max-w-7xl mx-auto px-6 md:px-8 ">
+      <div className="bg-[#f2e8cf]">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
           <div className="flex items-center justify-center sm:justify-start relative z-10 mb-5">
             <img
-              src={currentUser.avatar && `${process.env.NEXT_PUBLIC_API_URL}/${currentUser.avatar}`}
+              src={currentUser.avatar ? `${process.env.NEXT_PUBLIC_API_URL}/${currentUser.avatar}` : "/default-avatar.png"}
               alt="user-avatar-image"
               className="border-4 border-solid border-white rounded-full"
             />
-             <div className="flex flex-col sm:flex-row max-sm:gap-5 items-center justify-between mb-5">
-            <div className="block">
-              <h3 className="font-manrope font-bold text-4xl text-[#bc4749] mb-1 mt-10 ml-2">
-                {currentUser.firstname} {currentUser.lastname}
-              </h3>
-              <p className="font-normal text-[#bc4749] ml-2">
-                {currentUser.email}
-              </p>
-            </div>
+            <div className="flex flex-col sm:flex-row max-sm:gap-5 items-center justify-between mb-5">
+              <div className="block">
+                <h3 className="font-manrope font-bold text-4xl text-[#bc4749] mb-1 mt-10 ml-2">
+                  {currentUser.firstname} {currentUser.lastname}
+                </h3>
+                <p className="font-normal text-[#bc4749] ml-2">
+                  {currentUser.email}
+                </p>
+              </div>
             </div>
           </div>
 
+          <div>
+            <label className='btn bg-[#bc4749] border hover:bg-red-700 ml-10 px-2 py-1' htmlFor='upload-image'>
+              {" "} <i className='fas fa-pen text-white'>Change Profile </i>
+            </label>
+            <input type="file" hidden onChange={uploadProfileImage} id="upload-image" />
+          </div>
+          <div>
+            <label className='btn bg-[#bc4749] border hover:bg-red-700 ml-10 px-2 py-1'>
+              {" "} <Link href="/resetPassword"><i className='fas fa-pen text-white'>Forgot Password </i></Link>
+            </label>
+          </div>
 
-
-
-          <div className="">
-                <label className='btn bg-[#bc4749] border hover:bg-red-700 ml-10 px-2 py-1' htmlFor='upload-image'>
-                  {" "} <i className='fas fa-pen text-white'>Change Profile </i>
-                </label>
-                <input type="file" hidden onChange={uploadProfileImage} id="upload-image" />
-              
-         
-                <label className='btn bg-[#bc4749] border hover:bg-red-700 ml-10 px-2 py-1' htmlFor='upload-image'>
-                  {" "} <Link href="/resetPassword"><i className='fas fa-pen text-white'>Forgot Password </i></Link>
-                </label>
-              </div>
-        </div>
-        <div>
-
-        </div>
-        {
-          <Formik initialValues={currentUser} onSubmit={updateProfile}>
-            {(updateProfile) => (
-
-
-              <form onSubmit={updateProfile.handleSubmit} className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2">
+          <Formik
+            initialValues={{ ...currentUser }}
+            enableReinitialize={true}
+            onSubmit={(values) => {
+              updateProfile(values);
+            }}
+          >
+            {({ values, handleChange, handleSubmit }) => (
+              <form onSubmit={handleSubmit} className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2">
                 <div>
                   <label
-                    htmlFor="first-name"
+                    htmlFor="firstname"
                     className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
                   >
                     Name*
@@ -113,14 +117,15 @@ const UserProfile = () => {
                   <input
                     type='text'
                     id="firstname"
-                    value={updateProfile.values.firstname}
-                    onChange={updateProfile.handleChange}
+                    name="firstname"
+                    value={values.firstname}
+                    onChange={handleChange}
                     className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                   />
                 </div>
                 <div>
                   <label
-                    htmlFor="last-name"
+                    htmlFor="lastname"
                     className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
                   >
                     Address*
@@ -128,14 +133,15 @@ const UserProfile = () => {
                   <input
                     type='text'
                     id="lastname"
-                    value={updateProfile.values.lastname}
-                    onChange={updateProfile.handleChange}
+                    name="lastname"
+                    value={values.lastname}
+                    onChange={handleChange}
                     className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                   />
                 </div>
                 <div>
                   <label
-                    htmlFor="first-name"
+                    htmlFor="email"
                     className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
                   >
                     Email*
@@ -143,14 +149,15 @@ const UserProfile = () => {
                   <input
                     type='text'
                     id="email"
-                    value={updateProfile.values.email}
-                    onChange={updateProfile.handleChange}
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
                     className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                   />
                 </div>
                 <div>
                   <label
-                    htmlFor="last-name"
+                    htmlFor="phone"
                     className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
                   >
                     Phone No.*
@@ -158,39 +165,39 @@ const UserProfile = () => {
                   <input
                     type='text'
                     id="phone"
-                    value={updateProfile.values.phone}
-                    onChange={updateProfile.handleChange}
+                    name="phone"
+                    value={values.phone}
+                    onChange={handleChange}
                     className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
                   <label
-                    htmlFor="message"
+                    htmlFor="bio"
                     className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
                   >
                     Bio*
                   </label>
                   <textarea
-                    name="message"
+                    name="bio"
+                    id="bio"
+                    value={values.bio}
+                    onChange={handleChange}
                     className="h-64 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                    defaultValue={""}
                   />
                 </div>
-                <div className="flex items-center  justify-between sm:col-span-2">
+                <div className="flex items-center justify-between sm:col-span-2">
                   <button type="submit" className="inline-block rounded-lg bg-blue-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
                     Update
                   </button>
-
                 </div>
-
               </form>
             )}
           </Formik>
-        }
+        </div>
       </div>
     </section>
-
   )
 }
 
