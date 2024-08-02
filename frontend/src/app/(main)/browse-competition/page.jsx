@@ -67,10 +67,10 @@ const BrowseCompetitions = () => {
 
     </Navbar>
     <div className=' bg-[#f2e8cf]'>
+    <div className="border border-[#bc4749]  flex justify-between text-sm ">
+    </div>
 <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16  ">
-  <div className="border border-[#bc4749] mb-5 flex justify-between text-sm ">
     
-  </div>
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
     {/* CARD 1 */}
     {displaycompetitions()}

@@ -33,6 +33,14 @@ const Layout = ({ children }) => {
                                  </span>
                      
                                 </Link>
+                                <Link href="/admin/manageuser" className="flex  text-[#bc4749] bg-[#f2e8cf]  hover:border-[#fdba74] rounded-xl py-2 px-16 hover:scale-105 hover:bg-[#fdba74] font-semibold duration-300 space-x-2  focus:outline-none  focus:text-indigo-400  text-white rounded ">
+                                <LuLayoutDashboard className='text-xl text-[#bc4749] ' />
+                           
+                            <span className='text-[#bc4749]'>
+                            Users
+                                 </span>
+                     
+                                </Link>
                                 <Link href="/admin/managecompetition" className="flex  text-[#bc4749] bg-[#f2e8cf]  hover:border-[#fdba74] rounded-xl py-2 px-10 hover:scale-105 hover:bg-[#fdba74] font-semibold duration-300 space-x-2  focus:outline-none  focus:text-indigo-400  text-white rounded ">
                                 <LuLayoutDashboard className='text-xl text-[#bc4749] ' />
                            
@@ -42,38 +50,9 @@ const Layout = ({ children }) => {
                      
                                 </Link>
 
-                                <Link href="/admin/manageuser" className="flex  text-[#bc4749] bg-[#f2e8cf]  hover:border-[#fdba74] rounded-xl py-2 px-16 hover:scale-105 hover:bg-[#fdba74] font-semibold duration-300 space-x-2  focus:outline-none  focus:text-indigo-400  text-white rounded ">
-                                <LuLayoutDashboard className='text-xl text-[#bc4749] ' />
-                           
-                            <span className='text-[#bc4749]'>
-                            Users
-                                 </span>
-                     
-                                </Link>
-                                <Link href="/admin/contact" className="flex  text-[#bc4749] bg-[#f2e8cf]  hover:border-[#fdba74] rounded-xl py-2 px-16 hover:scale-105 hover:bg-[#fdba74] font-semibold duration-300 space-x-2  focus:outline-none  focus:text-indigo-400  text-white rounded ">
-                                <LuLayoutDashboard className='text-xl text-[#bc4749] ' />
-                           
-                            <span className='text-[#bc4749]'>
-                            Contact
-                                 </span>
-                     
-                                </Link>
-                            </div>
-                           <div className="hidden xl:flex justify-start p-6 items-center space-x-6 mt-10 mb-10">
-
-
-
-                           </div>
-                            <div className="hidden xl:flex justify-start p-6 items-center space-x-3 border-[#f2e8cf] border-b w-full">
-
-
-
-                           </div>
-
-
-
-                            <div className="hidden xl:flex justify-start p-6 items-center space-x-3 ">
-                            <Link href="/" className="flex  text-[#bc4749] bg-[#f2e8cf]  hover:border-[#fdba74] rounded-xl py-2 px-14 hover:scale-105 hover:bg-[#fdba74] font-semibold duration-300 space-x-2  focus:outline-none  focus:text-indigo-400  text-white rounded ">
+                               
+                                
+                                <Link href="/" className="flex  text-[#bc4749] bg-[#f2e8cf]  hover:border-[#fdba74] rounded-xl py-2 px-16 hover:scale-105 hover:bg-[#fdba74] font-semibold duration-300 space-x-2  focus:outline-none  focus:text-indigo-400  text-white rounded ">
                                 <LuLayoutDashboard className='text-xl text-[#bc4749] ' />
                            
                             <span className='text-[#bc4749]'>
@@ -81,11 +60,12 @@ const Layout = ({ children }) => {
                                  </span>
                      
                                 </Link>
+
                             </div>
-
-                            <div className="flex flex-col justify-start items-center px-6 bg[#f2e8cf]">
-
-
+                            
+                            
+                           
+                             <div className="flex flex-col justify-start items-center px-6 bg[#f2e8cf] mt-5">
 
                                 <div className=" flex justify-between items-center w-full bg[#f2e8cf]">
                                     <div className="flex justify-center items-center  space-x-2">
@@ -107,6 +87,7 @@ const Layout = ({ children }) => {
                                     </div>
                                 </div>
                             </div>
+                            
 
                         </div>
                     </div>

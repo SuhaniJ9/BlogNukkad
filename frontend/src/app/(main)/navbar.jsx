@@ -1,7 +1,7 @@
 'use client'
 import useAppContext from '@/context/appcontext';
 import React from 'react'
-
+import Link from 'next/link';
 
 const Navbar = () => {
 const { loggedIn, logout } = useAppContext();
@@ -74,10 +74,11 @@ const showloggedIn= () => {
         <div className="md:col-span-3">
              
         <div className="w-36 self-center mr-2">
-        <img
+       <Link href="/"> <img
           className="w-max h-max"
           src="blog.png"
         />
+        </Link>
       </div>
         </div>
         {/* Button Group */}

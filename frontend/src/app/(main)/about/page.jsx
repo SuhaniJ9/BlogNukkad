@@ -1,7 +1,12 @@
 import React from 'react'
-
+import { SiMongodb } from "react-icons/si";
+import Navbar from '../navbar';
 const About = () => {
   return (
+    <>
+    <Navbar>
+
+    </Navbar>
     <section className="bg-[#bc4749]">
   <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
@@ -10,16 +15,14 @@ const About = () => {
           About Us
         </h2>
         <p className="mt-4 text-[#f2e8cf] text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis eros
-          at lacus feugiat hendrerit sed ut tortor. Suspendisse et magna quis
-          elit efficitur consequat. Mauris eleifend velit a pretium iaculis.
-          Donec sagittis velit et magna euismod, vel aliquet nulla malesuada.
-          Nunc pharetra massa lectus, a fermentum arcu volutpat vel.
+       Your Go-To Hub for Blogging and Competitions!
+          </p><p className="mt-4 text-[#f2e8cf] text-lg">
+Blog Nukkad is a vibrant, dynamic web application meticulously crafted using the MERN stack (MongoDB, Express.js, React, and Node.js). Our platform is designed to cater to avid bloggers, aspiring writers, and competitive spirits alike. Whether you're looking to share your thoughts with the world, read insightful articles, or participate in thrilling competitions, Blog Nukkad has something for everyone.
         </p>
       </div>
       <div className="mt-12 md:mt-0">
         <img
-          src="https://images.unsplash.com/photo-1531973576160-7125cd663d86"
+          src="https://i.pinimg.com/564x/9f/e7/66/9fe76674a7ac8baef49292376a13e5a7.jpg"
           alt="About Us Image"
           className="object-cover rounded-lg shadow-md"
         />
@@ -36,82 +39,30 @@ const About = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="lg:text-center">
         <h2 className="font-heading mb-4 bg-[#bc4749] text-[#f2e8cf] px-4 py-2 rounded-lg md:w-64 md:mx-auto text-xs font-semibold tracking-widest uppercase title-font">
-          Why choose us?
+        Why Choose Blog Nukkad?
         </h2>
-        <p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-[#bc4749] sm:text-4xl">
-          We know tech, we know finance. We are fintech experts.
-        </p>
+        <p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-[#bc4749] sm:text-2xl">
+        User-Friendly Interface</p>
         <p className="mt-4 max-w-2xl text-lg text-[#bc4749] lg:mx-auto">
-          We know how to handle taxation for all the countried we operate in. We
-          care for our customers and help them manage cashflows.
+Our platform is designed with you in mind. With a clean, intuitive interface, you can focus on what you do best – writing and competing.
         </p>
-      </div>
-      <div className="mt-10">
-        <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-          <div className="relative">
-            <dt>
-              <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-[#bc4749]">
-                <img src="https://www.svgrepo.com/show/503163/api-settings.svg" classname="text-blue-800" />
-              </div>
-              <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-700">
-                Powerful API
-              </p>
-            </dt>
-            <dd className="mt-2 ml-16 text-base text-[#bc4749]">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-              impedit perferendis suscipit eaque, iste dolor cupiditate
-              blanditiis ratione.
-            </dd>
-          </div>
-          <div className="relative">
-            <dt>
-              <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-[#bc4749]">
-                <img src="https://www.svgrepo.com/show/503138/webpack.svg" />
-              </div>
-              <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-700">
-                Easy to integrate SDK
-              </p>
-            </dt>
-            <dd className="mt-2 ml-16 text-base text-[#bc4749]">
-              {" "}
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-              impedit perferendis suscipit eaque, iste dolor cupiditate
-              blanditiis ratione.
-            </dd>
-          </div>
-          <div className="relative">
-            <dt>
-              <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                <img src="https://www.svgrepo.com/show/511771/dashboard-671.svg" />
-              </div>
-              <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-700">
-                Low Transaction Cost
-              </p>
-            </dt>
-            <dd className="mt-2 ml-16 text-base text-[#bc4749]">
-              {" "}
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-              impedit perferendis suscipit eaque, iste dolor cupiditate
-              blanditiis ratione.
-            </dd>
-          </div>
-          <div className="relative">
-            <dt>
-              <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                <img src="https://www.svgrepo.com/show/76267/free-commercial-label.svg" />
-              </div>
-              <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-700">
-                Powerful Dashboard
-              </p>
-            </dt>
-            <dd className="mt-2 ml-16 text-base text-[#bc4749]">
-              {" "}
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-              impedit perferendis suscipit eaque, iste dolor cupiditate
-              blanditiis ratione.
-            </dd>
-          </div>
-        </dl>
+         
+       
+
+        <p className="font-heading mt-2 text-2xl leading-8 font-semibold tracking-tight text-[#bc4749] sm:text-2xl">
+Secure and Reliable </p>
+
+<p className="mt-4 max-w-2xl text-lg text-[#bc4749] lg:mx-auto">
+We prioritize your security. Blog Nukkad uses advanced security measures to protect your data and ensure a safe and reliable experience.
+</p>
+
+<p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-[#bc4749] sm:text-2xl">
+Continuous Improvement
+</p>
+<p className="mt-4 max-w-2xl text-lg text-[#bc4749] lg:mx-auto">
+We are committed to continuous improvement and regularly update our platform with new features and enhancements based on user feedback.
+
+        </p>
       </div>
     </div>
   </div>
@@ -123,16 +74,14 @@ const About = () => {
   className="container mx-auto px-4 space-y-6 bg-[#bc4749] py-8 md:py-12 lg:py-20"
 >
   <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-    <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-6xl text-white">
+    <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-4xl text-white">
       Features
     </h2>
     <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 text-[#f2e8cf]">
-      The product can personalize user experiences by understanding individual
-      preferences and tailoring recommendations or content based on user
-      behavior and historical data.
+    Web Application meticulously crafted using the MERN stack (MongoDB, Express.js, React, and Node.js) along with Next.js for server-side rendering and enhanced performance. 
     </p>
   </div>
-  <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+  <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-2">
     <div className="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-blue-300 p-2">
       <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
         <svg viewBox="0 0 24 24" className="h-12 w-12 fill-current text-blue-800">
@@ -141,7 +90,7 @@ const About = () => {
         <div className="space-y-2">
           <h3 className="font-bold text-[#bc4749]">Next.js 13</h3>
           <p className="text-sm text-muted-foreground text-[#bc4749]">
-            App dir, Routing, Layouts, Loading UI and API routes.
+          High-performance web pages with improved SEO, faster load times, and Routing.
           </p>
         </div>
       </div>
@@ -160,12 +109,12 @@ const About = () => {
     <div className="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-blue-300 p-2">
       <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
         <svg viewBox="0 0 24 24" className="h-12 w-12 fill-current text-blue-800">
-          <path d="M0 12C0 5.373 5.373 0 12 0c4.873 0 9.067 2.904 10.947 7.077l-15.87 15.87a11.981 11.981 0 0 1-1.935-1.099L14.99 12H12l-8.485 8.485A11.962 11.962 0 0 1 0 12Zm12.004 12L24 12.004C23.998 18.628 18.628 23.998 12.004 24Z"></path>
+        <SiMongodb />
         </svg>
         <div className="space-y-2">
           <h3 className="font-bold text-[#bc4749]">Database</h3>
           <p className="text-sm text-muted-foreground text-[#bc4749]">
-            ORM using Prisma and deployed on PlanetScale.
+          MongoDB's flexible schema enables admin to adapt needs and continually enhance your experience.
           </p>
         </div>
       </div>
@@ -178,47 +127,16 @@ const About = () => {
         <div className="space-y-2">
           <h3 className="font-bold text-[#bc4749]">Components</h3>
           <p className="text-sm text-muted-foreground text-[#bc4749]">
-            UI components built using Radix UI and styled with Tailwind CSS.
+            UI components styled with Tailwind CSS.
           </p>
         </div>
       </div>
     </div>
-    <div className="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-blue-300 p-2">
-      <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1}
-          className="h-12 w-12 fill-current text-blue-800"
-        >
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        </svg>
-        <div className="space-y-2">
-          <h3 className="font-bold text-[#bc4749]">Authentication</h3>
-          <p className="text-sm text-muted-foreground text-[#bc4749]">
-            Authentication using NextAuth.js and middlewares.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div className="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-blue-300 p-2">
-      <div className="flex h-[180px] flex-col justify-between rounded-md p-6 text-blue-800">
-        <svg viewBox="0 0 24 24" className="h-12 w-12 fill-current">
-          <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"></path>
-        </svg>
-        <div className="space-y-2">
-          <h3 className="font-bold text-[#bc4749]">Subscriptions</h3>
-          <p className="text-sm text-muted-foreground text-[#bc4749]">
-            Free and paid subscriptions using Stripe.
-          </p>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </div>
 </section>
-
+</>
   )
 }
 

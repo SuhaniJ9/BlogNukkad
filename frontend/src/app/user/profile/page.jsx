@@ -1,6 +1,7 @@
 'use client'
 
 import { Formik } from 'formik';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 
@@ -58,7 +59,7 @@ const UserProfile = () => {
         alt="cover-image"
         className="w-full absolute top-0 left-0 z-0 h-60"
       />
-      <div div className="bg-[#f2e8cf]">
+      < div className="bg-[#f2e8cf]">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-8 ">
           <div className="flex items-center justify-center sm:justify-start relative z-10 mb-5">
             <img
@@ -86,8 +87,14 @@ const UserProfile = () => {
                   {" "} <i className='fas fa-pen text-white'>Change Profile </i>
                 </label>
                 <input type="file" hidden onChange={uploadProfileImage} id="upload-image" />
-              </div>
+              
          
+                <label className='btn bg-[#bc4749] border hover:bg-red-700 ml-10 px-2 py-1' htmlFor='upload-image'>
+                  {" "} <Link href="/resetPassword"><i className='fas fa-pen text-white'>Forgot Password </i></Link>
+                </label>
+              </div>
+        </div>
+        <div>
 
         </div>
         {
@@ -171,7 +178,7 @@ const UserProfile = () => {
                   />
                 </div>
                 <div className="flex items-center  justify-between sm:col-span-2">
-                  <button type="submit" className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
+                  <button type="submit" className="inline-block rounded-lg bg-blue-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
                     Update
                   </button>
 

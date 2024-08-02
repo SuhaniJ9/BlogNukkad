@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import Navbar from '../navbar';
 
 const BrowseBlogs = () => {
   const [blogList, setBlogList] = useState([]);
@@ -55,14 +56,19 @@ const BrowseBlogs = () => {
   }
   return (
     <>
+     
+    <Navbar>
+
+    </Navbar>
+   
       <div className='bg-[#f2e8cf]'>
+      <div className="border border-[#bc4749]  flex justify-between text-sm ">
+      </div>
       <div className="bg-[#f2e8cf] py-16">
         <div className="container mx-auto px-4">
         
-          <h2 className="text-3xl font-bold text-[#bc4749] mb-8">
-            Latest Blogs   </h2>
-            <div className="border border-[#bc4749] mb-5 flex justify-between text-sm ">
-              </div>
+         
+            
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {displayBlogs()}
 </div>

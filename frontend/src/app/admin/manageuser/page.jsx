@@ -59,10 +59,10 @@ if(res.status==200)
     <thead className="text-xs text-gray-700 uppercase bg-[#bc4749] dark:text-[#f2e8cf]">
     <tr>
     <th scope="col" className="px-6 py-3 text-lg">
-          First Name
+          Name
         </th>
         <th scope="col" className="px-6 py-3 text-lg">
-          Last Name
+          Password
         </th>
         <th scope="col" className="px-6 py-3 text-lg">
           Email

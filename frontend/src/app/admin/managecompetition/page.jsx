@@ -50,10 +50,10 @@ if(res.status==200)
           {Compt.description}
         </th>
         <th scope="col" className="px-6 py-3 text-lg text-blue-900">
-          {Compt.startDate}
+        {new Date(Compt.startDate).toLocaleDateString()}
         </th>
         <th scope="col" className="px-6 py-3 text-lg text-blue-900">
-          {Compt.endDate}
+          {new Date(Compt.endDate).toLocaleDateString()}
         </th>
         <th scope="col" className="px-6 py-3 text-lg text-blue-900">
           {Compt.winner}
