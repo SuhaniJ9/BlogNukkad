@@ -50,13 +50,20 @@ router.put('/update/:id', (req, res) => {
         });
 });
 
+router.get('/getbyuser', verifyToken, (req, res) => {
+    res.status(200).json(req.user);
+});
+
+
+
+
 router.post('/authenticate', (req, res) => {
     console.log(req.body);
     Model.findOne(req.body)
         .then((result) => {
             if (result) {
-                const { _id, name, email, avatar, role } = result;
-                const payload = { _id, name, email };
+                const { _id, firstname, lastname, email, avatar, role } = result;
+                const payload = { _id, email,firstname,lastname };
                 jwt.sign(
                     payload,
                     process.env.JWT_SECRET,
@@ -67,7 +74,7 @@ router.post('/authenticate', (req, res) => {
                             console.log(err);
                             res.status(500).json({ message: 'error creating token' })
                         } else {
-                            res.status(200).json({ token, role, avatar, name })
+                            res.status(200).json({ token,_id, role, avatar, firstname,lastname,email })
                         }
 
                     }
@@ -94,16 +101,18 @@ router.get('/getbyemail/:email', (req,res) => {
     console.log(req.body);
 });
 
-router.get('/getcurrentuser', verifyToken, async (req, res) => {
+router.get('/getcurrentuser', async (req, res) => {
     try {
-      const user = await Model.findById(req.user._id).select('-password');
-      if (!user) {
-        return res.status(404).send({ error: 'User not found' });
-      }
-      res.send(user);
+        const userId = req.query.userId; // Accept userId as a query parameter
+        const user = await Model.findById(userId).select('-password');
+        if (!user) {
+            return res.status(404).send({ error: 'User not found' });
+        }
+        res.send(user);
     } catch (err) {
-      res.status(500).send({ error: 'Server error' });
+        res.status(500).send({ error: 'Server error' });
     }
-  });
+});
+
 
 module.exports = router;

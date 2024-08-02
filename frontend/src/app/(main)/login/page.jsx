@@ -50,7 +50,7 @@ const router = useRouter();
                 sessionStorage.setItem('user', JSON.stringify(data));
                 setLoggedIn(true);
                 toast.success("Login Successfull");
-                router.push("/user/createBlog");   
+                router.push("/");   
                }
               }
                else{
