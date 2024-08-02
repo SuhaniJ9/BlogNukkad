@@ -1,5 +1,4 @@
 'use client'
-
 import { Formik } from 'formik';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
@@ -53,6 +52,7 @@ const UserProfile = () => {
 
 
   return (
+    <>
     <section className="relative pt-40 pb-24">
       <img
         src="https://i.pinimg.com/564x/7d/df/96/7ddf9680b41fc4df1e9a1aa9e63b62b6.jpg"
@@ -89,9 +89,6 @@ const UserProfile = () => {
                 <input type="file" hidden onChange={uploadProfileImage} id="upload-image" />
               
          
-                <label className='btn bg-[#bc4749] border hover:bg-red-700 ml-10 px-2 py-1' htmlFor='upload-image'>
-                  {" "} <Link href="/resetPassword"><i className='fas fa-pen text-white'>Forgot Password </i></Link>
-                </label>
               </div>
         </div>
         <div>
@@ -190,7 +187,7 @@ const UserProfile = () => {
         }
       </div>
     </section>
-
+</>
   )
 }
 

@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-
+import Navbar from '../navbar';
 
 const CreateBlog = () => {
 const router = useRouter();
@@ -66,6 +66,10 @@ const router = useRouter();
   };
 
   return (
+    <>
+    <Navbar>
+
+    </Navbar>
     <div>
       <div className="bg-white rounded-lg relative m-5">
         <div className="flex items-start justify-between p-5 border-b rounded-t">
@@ -184,6 +188,7 @@ const router = useRouter();
         </div>
       </div>
     </div>
+    </>
   )
 }
 

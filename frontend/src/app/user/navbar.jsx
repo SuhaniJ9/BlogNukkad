@@ -92,6 +92,7 @@ const showloggedIn= () => {
        <Link href="/"> <img
           className="w-max h-max"
           src="blog.png"
+          alt='logo'
         />
         </Link>
       </div>

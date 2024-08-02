@@ -1,9 +1,8 @@
 import React from 'react'
 import { LuLayoutDashboard } from "react-icons/lu";
-import { MdOutlineManageSearch } from "react-icons/md";
-import { FaUserPlus } from "react-icons/fa";
-import { CiLogout } from "react-icons/ci";
-import { MdOutlineContactPhone } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa6";
+import { PiBrowsersDuotone } from "react-icons/pi";
+import { IoIosLogOut } from "react-icons/io";
 
 import Link from 'next/link';
 
@@ -20,7 +19,7 @@ const Layout = ({ children }) => {
                             className="xl:rounded-r transform  h-full fixed  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-64 bg-[#bc4749] flex-col"
                         >
                             
-                            <div className="hidden xl:flex justify-start p-6 items-center space-x-3">
+                            <div style={{ width: '150px', height: '100px', padding: '10px' }} className="hidden xl:flex p-10 ml-10 justify-start items-center space-x-3">
                             <img src="/blog.png" alt="logo" className="" />
 
                             </div>
@@ -34,7 +33,7 @@ const Layout = ({ children }) => {
                      
                                 </Link>
                                 <Link href="/admin/manageuser" className="flex  text-[#bc4749] bg-[#f2e8cf]  hover:border-[#fdba74] rounded-xl py-2 px-16 hover:scale-105 hover:bg-[#fdba74] font-semibold duration-300 space-x-2  focus:outline-none  focus:text-indigo-400  text-white rounded ">
-                                <LuLayoutDashboard className='text-xl text-[#bc4749] ' />
+                                <FaRegUser className='text-xl text-[#bc4749]' />
                            
                             <span className='text-[#bc4749]'>
                             Users
@@ -42,7 +41,7 @@ const Layout = ({ children }) => {
                      
                                 </Link>
                                 <Link href="/admin/managecompetition" className="flex  text-[#bc4749] bg-[#f2e8cf]  hover:border-[#fdba74] rounded-xl py-2 px-10 hover:scale-105 hover:bg-[#fdba74] font-semibold duration-300 space-x-2  focus:outline-none  focus:text-indigo-400  text-white rounded ">
-                                <LuLayoutDashboard className='text-xl text-[#bc4749] ' />
+                                <PiBrowsersDuotone className='text-xl text-[#bc4749] ' />
                            
                             <span className='text-[#bc4749]'>
                            Competitions
@@ -53,7 +52,7 @@ const Layout = ({ children }) => {
                                
                                 
                                 <Link href="/" className="flex  text-[#bc4749] bg-[#f2e8cf]  hover:border-[#fdba74] rounded-xl py-2 px-16 hover:scale-105 hover:bg-[#fdba74] font-semibold duration-300 space-x-2  focus:outline-none  focus:text-indigo-400  text-white rounded ">
-                                <LuLayoutDashboard className='text-xl text-[#bc4749] ' />
+                                <IoIosLogOut className='text-xl text-[#bc4749] ' />
                            
                             <span className='text-[#bc4749]'>
                             Log Out

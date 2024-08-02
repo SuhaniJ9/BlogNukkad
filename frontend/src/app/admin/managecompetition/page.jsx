@@ -5,10 +5,18 @@ import AddCompetition from './addcompetition'
 import Link from 'next/link'
 
   const ManageCompetition = () => {
+  const [currentAdmin, setCurrentAdmin] = useState(JSON.parse(sessionStorage.getItem('admin')));
+
     const [isOpen, setIsOpen] = useState(false)
   const[Compts, setCompts] = useState([]);
   const fetchCompts = async () => {
-  const res = await fetch("http://localhost:5000/competition/getall");
+  const res = await fetch("http://localhost:5000/competition/getall",
+  {
+    headers: {
+      'x-auth-token': currentAdmin.token
+    }
+  }
+  );
   console.log(res.status);
   if(res.status==200)
   {

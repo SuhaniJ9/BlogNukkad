@@ -52,13 +52,13 @@ const Home = () => {
     <h6 className="text-xl font-bold font-manrope text-white">Share what you know. Learn what you don't. </h6>
     <div className="mt-5 sm:mt-5 mx-auto max-w-xl relative">
       
-<h1 class="text-5xl font-extrabold text-center leading-none tracking-tight text-white md:text-5xl lg:text-6xl dark:text-white">Be <span class="text-blue-600 dark:text-[#f2e8cf]  text-decoration-line: underline">the India's #1</span> Writer</h1>
+<h1 class="text-5xl font-extrabold text-center leading-none tracking-tight text-white md:text-5xl lg:text-6xl dark:text-white">Be <span class="text-[#f2e8cf]  text-decoration-line: underline">the India's #1</span> Writer</h1>
 
           <div className="text-center">
           <div className="mt-5 sm:mt-6">
-          <a
+          <button
             className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-black-500 bg-black text-black-800 shadow-sm hover:bg-[#bc4749] disabled:opacity-50 disabled:pointer-events-none dark:bg-black-900 dark:border-black-700 dark:text-white dark:hover:bg-black-800"
-            href="#"
+           
           >
             <svg
               className="flex-shrink-0 size-4"
@@ -76,10 +76,10 @@ const Home = () => {
               <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
             </svg>
             Business
-          </a>
-          <a
+          </button>
+          <button
             className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-black-500 bg-black text-black-800 shadow-sm hover:bg-[#bc4749] disabled:opacity-50 disabled:pointer-events-none dark:bg-black-900 dark:border-black-700 dark:text-white dark:hover:bg-black-800"
-            href="#"
+          
           >
             <svg
               className="flex-shrink-0 size-4"
@@ -97,10 +97,10 @@ const Home = () => {
               <circle cx={12} cy={12} r={3} />
             </svg>
             Strategy
-          </a>
-          <a
+          </button>
+          <button
             className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-black-500 bg-black text-black-800 shadow-sm hover:bg-[#bc4749] disabled:opacity-50 disabled:pointer-events-none dark:bg-black-900 dark:border-black-700 dark:text-white dark:hover:bg-black-800"
-            href="#"
+           
           >
             <svg
               className="flex-shrink-0 size-4"
@@ -117,10 +117,10 @@ const Home = () => {
               <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
             </svg>
             Health
-          </a>
-          <a
+          </button>
+          <button
             className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-black-500 bg-black text-black-800 shadow-sm hover:bg-[#bc4749] disabled:opacity-50 disabled:pointer-events-none dark:bg-black-900 dark:border-black-700 dark:text-white dark:hover:bg-black-800"
-            href="#"
+            
           >
             <svg
               className="flex-shrink-0 size-4"
@@ -139,10 +139,10 @@ const Home = () => {
               <path d="M10 22h4" />
             </svg>
             Creative
-          </a>
-          <a
+          </button>
+          <button
           className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-black-500 bg-black text-black-800 shadow-sm hover:bg-[#bc4749] disabled:opacity-50 disabled:pointer-events-none dark:bg-black-900 dark:border-black-700 dark:text-white dark:hover:bg-black-800"
-            href="#"
+           
             >
           
             <svg
@@ -166,8 +166,8 @@ const Home = () => {
               <path d="M10 18h4" />
             </svg>
             Environment
-          </a>
-          <a
+          </button>
+          <button
             className="m-1 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-black-500 bg-black text-black-800 shadow-sm hover:bg-[#bc4749] disabled:opacity-50 disabled:pointer-events-none dark:bg-black-900 dark:border-black-700 dark:text-white dark:hover:bg-black-800"
           >
             <svg
@@ -185,7 +185,7 @@ const Home = () => {
               <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
             </svg>
             Adventure
-          </a>
+          </button>
         </div>
         </div>
       </div>
